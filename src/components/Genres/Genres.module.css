@@ -1,0 +1,26 @@
+.container {
+    max-width: 1700px;
+    width: 100%;
+    margin: 30px auto;
+}
+.genresList {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 3px solid white;
+    padding: 0 20px;
+}
+.genre {
+    list-style: none;
+    color: #04b4c2;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.blockGenre {
+    height: 35px;
+}
+.blockGenreActive {
+    height: 35px;
+    border-bottom: 8px solid #04b4c2;
+}

@@ -1,0 +1,78 @@
+.header {
+    max-width: 1800px;
+    width: 100%;
+    margin: 0 auto;
+}
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+}
+.logo {
+    cursor: pointer;
+}
+.logoTitle {
+    font-size: 32px;
+}
+.book {
+    color: #04b4c2;
+}
+.store {
+    color: #eeb29f;
+}
+.searchBlock {
+    max-width: 350px;
+    width: 100%;
+}
+.input {
+    max-width: 350px;
+    width: 100%;
+    height: 25px;
+    padding: 10px 20px;
+    background-color: transparent;
+    border: 3px solid #eeb29f;
+    border-radius: 20px;
+    outline: none;
+    font-size: 16px;
+    font-family: "Open Sans";
+}
+.input::placeholder {
+    color: #736868;
+    font-size: 15px;
+    font-family: "Open Sans";
+}
+.auth {
+    display: flex;
+}
+.login {
+    width: 100px;
+    height: 50px;
+    background-color: #04b4c2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.login a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+.register {
+    cursor: pointer;
+    width: 150px;
+    height: 50px;
+    background-color: #eeb29f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+}
+.register a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}

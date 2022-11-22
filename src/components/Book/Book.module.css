@@ -1,0 +1,49 @@
+.block {
+    max-width: 600px;
+    width: 100%;
+    border: 5px solid white;
+    border-radius: 20px;
+    margin-bottom: 50px;
+}
+.blockItems {
+    display: flex;
+    padding: 20px 25px;
+}
+.imgBlock {
+    width: 220px;
+    height: 250px;
+    background-color: gray;
+}
+.info {
+    width: 300px;
+    margin-left: 20px;
+    font-family: "Open Sans";
+    display: flex;
+    flex-direction: column;
+}
+.title {
+    font-size: 20px;
+    color: #2e1fd7;
+    margin: 10px 0;
+}
+.author {
+    color: #736565;
+    margin: 10px 0;
+    font-size: 19px;
+    font-weight: bold;
+}
+
+.button {
+    width: 180px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: #50c2cb;
+    border: none;
+    font-family: "Open Sans";
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    align-self: center;
+}
