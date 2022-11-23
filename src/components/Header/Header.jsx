@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import classes from "./Header.module.css";
 
 const Header = () => {
@@ -19,12 +20,12 @@ const Header = () => {
                     />
                 </div>
                 <div className={classes.auth}>
-                    <div className={classes.login}>
-                        <a href="#">Вход</a>
-                    </div>
-                    <div className={classes.register}>
-                        <a href="#">Регистрация</a>
-                    </div>
+                    <Link to="/" className={classes.login}>
+                        <p>Вход</p>
+                    </Link>
+                    <Link to="/register" className={classes.register}>
+                        <p>Регистрация</p>
+                    </Link>
                 </div>
             </div>
         </header>

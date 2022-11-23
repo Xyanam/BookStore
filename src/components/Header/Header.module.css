@@ -55,8 +55,9 @@
     border-radius: 20px;
     margin-right: 10px;
     cursor: pointer;
+    text-decoration: none;
 }
-.login a {
+.login p {
     text-decoration: none;
     color: white;
     font-weight: bold;
@@ -70,8 +71,9 @@
     justify-content: center;
     align-items: center;
     border-radius: 20px;
+    text-decoration: none;
 }
-.register a {
+.register p {
     text-decoration: none;
     color: white;
     font-weight: bold;

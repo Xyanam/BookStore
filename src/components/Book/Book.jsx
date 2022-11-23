@@ -1,15 +1,19 @@
 import React from "react";
 import classes from "./Book.module.css";
 
-const Book = () => {
+const Book = ({ book }) => {
     return (
         <div className={classes.block}>
             <div className={classes.blockItems}>
-                <div className={classes.imgBlock}></div>
+                <div className={classes.imgBlock}>
+                    <img
+                        className={classes.img}
+                        src={book.image}
+                        alt="poster"
+                    />
+                </div>
                 <div className={classes.info}>
-                    <h2 className={classes.title}>
-                        Кладбище домашних животных
-                    </h2>
+                    <h2 className={classes.title}>{book.title}</h2>
                     <p className={classes.author}>Стивен Кинг</p>
                     <button className={classes.button}>Подробнее</button>
                 </div>

@@ -11,8 +11,15 @@
 }
 .imgBlock {
     width: 220px;
-    height: 250px;
-    background-color: gray;
+    height: 300px;
+    border-radius: 10px;
+    box-shadow: 0px 12px 8px 0px rgba(34, 60, 80, 0.2);
+}
+.img {
+    width: 220px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
 }
 .info {
     width: 300px;
