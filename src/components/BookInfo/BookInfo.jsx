@@ -1,28 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import classes from "./BookInfo.module.css";
 import Comment from "../Comment/Comment";
 import { useParams } from "react-router-dom";
-import axios from "axios";
 import Loader from "../Loader/Loader";
 import { useAuth } from "../../hooks/useAuth";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchBook } from "../../redux/slices/booksSlice";
 
 const BookInfo = () => {
   const { id } = useParams();
-  const [book, setBook] = useState();
-  const [loader, setLoader] = useState(true);
+  const { loading, book } = useSelector((state) => state.books);
+  const dispatch = useDispatch();
   const { isAuth } = useAuth();
 
   useEffect(() => {
-    setLoader(true);
-    axios.get(`http://bookstore/bookstore.ru/books/${id}`).then((response) => {
-      setBook(response.data);
-      setLoader(false);
-    });
-  }, [id]);
+    dispatch(fetchBook(id));
+  }, [id, dispatch]);
 
   return (
     <div className={classes.wrapper}>
-      {loader ? (
+      {loading ? (
         <Loader />
       ) : (
         <>
@@ -33,8 +30,10 @@ const BookInfo = () => {
             <div className={classes.infoBlock}>
               <div className={classes.info}>
                 <h2 className={classes.title}>{book.title}</h2>
-                <p className={classes.infoItems}>Автор: Стивен Кинг</p>
-                <p className={classes.infoItems}>Жанр: Хоррор</p>
+                <p className={classes.infoItems}>
+                  Автор: {book.name} {book.surname}
+                </p>
+                <p className={classes.infoItems}>Жанр: {book.genre}</p>
                 <p className={classes.infoItems}>
                   Год выпуска: {book.release_year}
                 </p>

@@ -11,7 +11,9 @@ const Book = ({ book }) => {
         </div>
         <div className={classes.info}>
           <h2 className={classes.title}>{book.title}</h2>
-          <p className={classes.author}>Стивен Кинг</p>
+          <p className={classes.author}>
+            {book.name} {book.surname}
+          </p>
           <Link to={`/${book.book_id}`} className={classes.button}>
             Подробнее
           </Link>

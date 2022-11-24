@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import classes from "./Login.module.css";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useDispatch } from "react-redux";
 import { setUser } from "../../redux/slices/userSlice";

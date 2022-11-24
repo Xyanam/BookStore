@@ -1,26 +1,24 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import classes from "./Home.module.css";
 import Genres from "../../components/Genres/Genres";
 import BooksList from "../../components/BooksList/BooksList";
-import axios from "axios";
+
 import Loader from "../../components/Loader/Loader";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchBooks } from "../../redux/slices/booksSlice";
 
 const Home = () => {
-  const [books, setBooks] = useState([]);
-  const [loader, setLoader] = useState(false);
+  const { loading, books } = useSelector((state) => state.books);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    setLoader(true);
-    axios.get("http://bookstore/bookstore.ru/books").then((result) => {
-      setBooks(result.data);
-      setLoader(false);
-    });
-  }, []);
+    dispatch(fetchBooks());
+  }, [dispatch]);
 
   return (
     <div className={classes.container}>
       <Genres />
-      {loader ? (
+      {loading ? (
         <Loader />
       ) : (
         <>
