@@ -15,7 +15,7 @@ const Registration = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [image, setImage] = useState(null);
-  const [role, setRole] = useState("user");
+  const [role] = useState("user");
 
   const notify = (response) => {
     if (response === true) {
@@ -23,16 +23,6 @@ const Registration = () => {
     } else {
       toast.error("Логин уже используется");
     }
-  };
-
-  const imageHandler = (e) => {
-    const reader = new FileReader();
-    reader.onload = () => {
-      if (reader.readyState === 2) {
-        setImage(reader.result);
-      }
-    };
-    reader.readAsDataURL(e.target.files[0]);
   };
 
   const onClickRegister = (e) => {
@@ -46,10 +36,7 @@ const Registration = () => {
       };
 
       axios
-        .post(
-          "http://bookstore/bookstore.ru/register.php",
-          JSON.stringify(userData)
-        )
+        .post("http://bookstore/bookstore.ru/register.php", JSON.stringify(userData))
         .then((resp) => {
           notify(resp.data.result);
           if (resp.data.result === true) {
@@ -106,15 +93,8 @@ const Registration = () => {
             placeholder="Повторите пароль"
           />
         </div>
-        <div className={classes.block}>
-          <p className={classes.label}>Аватарка</p>
-          <input type="file" id="input" onChange={imageHandler} required />
-        </div>
-        <button
-          type="submit"
-          className={classes.button}
-          onClick={onClickRegister}
-        >
+
+        <button type="submit" className={classes.button} onClick={onClickRegister}>
           Зарегистрироваться
         </button>
       </form>

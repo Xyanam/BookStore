@@ -1,0 +1,21 @@
+.block {
+  max-width: 1200px;
+  width: 100%;
+  margin: 30px auto;
+  background-color: rgba(238, 178, 159, 0.6);
+  border: 5px solid white;
+  border-radius: 15px;
+}
+.comment {
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+}
+.author {
+  font-family: "Open Sans";
+  font-size: 21px;
+}
+.text {
+  font-size: 18px;
+  font-weight: normal;
+}

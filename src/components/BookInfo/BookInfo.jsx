@@ -1,64 +1,52 @@
 import React, { useEffect } from "react";
 import classes from "./BookInfo.module.css";
-import Comment from "../Comment/Comment";
 import { useParams } from "react-router-dom";
 import Loader from "../Loader/Loader";
-import { useAuth } from "../../hooks/useAuth";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchBook } from "../../redux/slices/booksSlice";
+import CommentsBlock from "../CommentsBlock/CommentsBlock";
 
 const BookInfo = () => {
   const { id } = useParams();
-  const { loading, book } = useSelector((state) => state.books);
+  const { book, loading } = useSelector((state) => state.books);
   const dispatch = useDispatch();
-  const { isAuth } = useAuth();
 
   useEffect(() => {
     dispatch(fetchBook(id));
   }, [id, dispatch]);
 
   return (
-    <div className={classes.wrapper}>
-      {loading ? (
+    <>
+      {book.length === 0 ? (
+        <div className={classes.notFound}>
+          <h1>Книга не найдена!</h1>
+        </div>
+      ) : loading ? (
         <Loader />
       ) : (
-        <>
+        <div className={classes.wrapper}>
           <div className={classes.block}>
             <div className={classes.blockImg}>
-              <img src={book.image} className={classes.img} alt="" />
+              <img src={book[0].image} className={classes.img} alt="" />
             </div>
             <div className={classes.infoBlock}>
               <div className={classes.info}>
-                <h2 className={classes.title}>{book.title}</h2>
+                <h2 className={classes.title}>{book[0].title}</h2>
                 <p className={classes.infoItems}>
-                  Автор: {book.name} {book.surname}
+                  Автор: {book[0].name} {book[0].surname}
                 </p>
-                <p className={classes.infoItems}>Жанр: {book.genre}</p>
-                <p className={classes.infoItems}>
-                  Год выпуска: {book.release_year}
-                </p>
+                <p className={classes.infoItems}>Жанр: {book[0].genre}</p>
+                <p className={classes.infoItems}>Год выпуска: {book[0].release_year}</p>
               </div>
               <div className={classes.descriptionBook}>
-                <p className={classes.description}>{book.text}</p>
+                <p className={classes.description}>{book[0].text}</p>
               </div>
             </div>
           </div>
-
-          <div className={classes.commentsBlock}>
-            <h1 style={{ textAlign: "center" }}>Комментарии</h1>
-            {isAuth ? (
-              <>
-                <div className={classes.commentList}>
-                  <Comment />
-                </div>
-              </>
-            ) : (
-              "Зарегайся"
-            )}
-          </div>
-        </>
+          <CommentsBlock book_id={id} />
+        </div>
       )}
-    </div>
+    </>
   );
 };
 

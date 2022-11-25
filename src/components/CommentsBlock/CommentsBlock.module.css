@@ -1,0 +1,65 @@
+.commentsBlock {
+  max-width: 1200px;
+  width: 100%;
+  padding: 20px 0px;
+}
+
+.blockInput {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.commentInput {
+  resize: none;
+  height: 100px;
+  max-width: 600px;
+  width: 100%;
+  padding: 15px 15px;
+  background-color: transparent;
+  border: 3px solid #eeb29f;
+  border-radius: 20px;
+  font-family: "Open Sans";
+  font-size: 18px;
+  outline: none;
+}
+.commentInput::placeholder {
+  font-family: "Open Sans";
+  font-size: 18px;
+  color: #736868;
+}
+.button {
+  width: 200px;
+  height: 45px;
+  margin-top: 20px;
+  background-color: #04b4c2;
+  color: white;
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+}
+.nonAuth {
+  max-width: 1200px;
+  width: 100%;
+  margin-top: 50px;
+}
+.textNonAuth {
+  text-align: center;
+  font-size: 20px;
+  font-family: "Open Sans";
+  font-weight: bold;
+}
+.link {
+  color: #8eccd1;
+}
+
+.empty {
+  text-align: center;
+  font-size: 30px;
+  color: #736868;
+}

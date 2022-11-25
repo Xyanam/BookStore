@@ -30,10 +30,7 @@ const Login = () => {
       password,
     };
     axios
-      .post(
-        "http://bookstore/bookstore.ru/signin.php",
-        JSON.stringify(userData)
-      )
+      .post("http://bookstore/bookstore.ru/signin.php", JSON.stringify(userData))
       .then((response) => {
         notify(response.data.status);
         if (response.data.status === 200) {
@@ -69,11 +66,7 @@ const Login = () => {
           />
         </div>
 
-        <button
-          type="submit"
-          className={classes.button}
-          onClick={onClickRegister}
-        >
+        <button type="submit" className={classes.button} onClick={onClickRegister}>
           Авторизоваться
         </button>
       </form>
