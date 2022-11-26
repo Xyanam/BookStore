@@ -22,11 +22,14 @@ const CommentsBlock = ({ book_id }) => {
         book_id,
         text: commentText,
       };
-      axios.post("http://bookstore/bookstore.ru/books", commentData).then(() => {
-        dispatch(fetchBook(book_id));
-        setCommentText("");
-        toast.success("Комментарий добавлен");
-      });
+      axios
+        .post("http://bookstore/bookstore.ru/books", commentData)
+        .then(() => {
+          dispatch(fetchBook(book_id));
+          setCommentText("");
+          toast.success("Комментарий добавлен");
+        })
+        .catch((error) => toast.error(error));
     } else {
       toast.error("Вы ввели меньше 3 символов");
     }

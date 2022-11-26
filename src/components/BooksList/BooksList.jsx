@@ -5,9 +5,11 @@ import classes from "./BooksList.module.css";
 const BooksList = ({ books }) => {
   return (
     <div className={classes.container}>
-      {books.map((book) => (
-        <Book key={book.book_id} book={book} />
-      ))}
+      {!books.length ? (
+        <h1>Книги не найдено</h1>
+      ) : (
+        books.map((book) => <Book key={book.book_id} book={book} />)
+      )}
     </div>
   );
 };

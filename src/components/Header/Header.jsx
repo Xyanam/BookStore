@@ -1,14 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import classes from "./Header.module.css";
 import { useAuth } from "../../hooks/useAuth";
 import { useDispatch, useSelector } from "react-redux";
 import { removeUser } from "../../redux/slices/userSlice";
 import { toast } from "react-toastify";
+import axios from "axios";
+import { setBooks } from "../../redux/slices/booksSlice";
+
 const Header = () => {
   const dispatch = useDispatch();
   const { isAuth } = useAuth();
   const user = useSelector((state) => state.user);
+
+  const [search, setSearch] = useState("");
+
+  const [selectedSearch, setSelectedSearch] = useState("title");
+
+  useEffect(() => {
+    axios
+      .get(`http://bookstore/bookstore.ru/books?${selectedSearch}=${search}`)
+      .then((response) => dispatch(setBooks(response.data)));
+  }, [search, dispatch]);
 
   const logout = () => {
     toast.info("Вы вышли из аккаунта!");
@@ -25,7 +38,27 @@ const Header = () => {
           </h1>
         </Link>
         <div className={classes.searchBlock}>
-          <input type="text" className={classes.input} placeholder="Я ищу..." />
+          <select
+            name="Искать по"
+            onChange={(e) => setSelectedSearch(e.target.value)}
+            className={classes.select}>
+            <option disabled className={classes.option}>
+              Искать по:
+            </option>
+            <option value="title" className={classes.option}>
+              Названию
+            </option>
+            <option value="author" className={classes.option}>
+              Автору
+            </option>
+          </select>
+          <input
+            type="text"
+            className={classes.input}
+            placeholder="Я ищу..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
         </div>
         <div className={classes.auth}>
           {isAuth ? (

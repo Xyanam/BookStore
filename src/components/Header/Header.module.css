@@ -1,115 +1,135 @@
 .header {
-    max-width: 1800px;
-    width: 100%;
-    margin: 0 auto;
+  max-width: 1800px;
+  width: 100%;
+  margin: 0 auto;
 }
 .navigation {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
 }
 .logo {
-    cursor: pointer;
-    text-decoration: none;
+  cursor: pointer;
+  text-decoration: none;
 }
 .logoTitle {
-    font-size: 32px;
+  font-size: 32px;
 }
 .book {
-    color: #04b4c2;
+  color: #04b4c2;
 }
 .store {
-    color: #eeb29f;
+  color: #eeb29f;
 }
 .searchBlock {
-    max-width: 350px;
-    width: 100%;
+  max-width: 600px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.select {
+  width: 200px;
+  height: 40px;
+  background-color: transparent;
+  font-weight: bold;
+  color: #736868;
+  border: 3px solid #eeb29f;
+  border-radius: 10px;
+  margin-right: 10px;
+  font-size: 14px;
+}
+.option {
+  height: 40px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #736868;
 }
 .input {
-    max-width: 350px;
-    width: 100%;
-    height: 25px;
-    padding: 10px 20px;
-    background-color: transparent;
-    border: 3px solid #eeb29f;
-    border-radius: 20px;
-    outline: none;
-    font-size: 16px;
-    font-family: "Open Sans";
+  max-width: 350px;
+  width: 100%;
+  height: 25px;
+  padding: 10px 20px;
+  background-color: transparent;
+  border: 3px solid #eeb29f;
+  border-radius: 20px;
+  outline: none;
+  font-size: 16px;
+  font-family: "Open Sans";
 }
 .input::placeholder {
-    color: #736868;
-    font-size: 15px;
-    font-weight: 600;
-    font-family: "Open Sans";
+  color: #736868;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: "Open Sans";
 }
 .auth {
-    display: flex;
+  display: flex;
 }
 .login {
-    width: 100px;
-    height: 50px;
-    background-color: #04b4c2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 20px;
-    margin-right: 10px;
-    cursor: pointer;
-    text-decoration: none;
+  width: 100px;
+  height: 50px;
+  background-color: #04b4c2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  margin-right: 10px;
+  cursor: pointer;
+  text-decoration: none;
 }
 .login p {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    transition: 0.2s;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  transition: 0.2s;
 }
 .login:hover {
-    opacity: 0.7;
-    transition: 0.2s;
+  opacity: 0.7;
+  transition: 0.2s;
 }
 .register {
-    cursor: pointer;
-    width: 150px;
-    height: 50px;
-    background-color: #eeb29f;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 20px;
-    text-decoration: none;
-    transition: 0.2s;
+  cursor: pointer;
+  width: 150px;
+  height: 50px;
+  background-color: #eeb29f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  text-decoration: none;
+  transition: 0.2s;
 }
 .register:hover {
-    opacity: 0.7;
-    transition: 0.2s;
+  opacity: 0.7;
+  transition: 0.2s;
 }
 .register p {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
 }
 
 .user {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 180px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 180px;
 }
 .userLogin {
-    font-size: 22px;
-    font-weight: bold;
+  font-size: 22px;
+  font-weight: bold;
 }
 .imgBlock {
-    width: 80px;
-    border-radius: 25px;
-    height: 50px;
-    background-color: #eeb29f;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
+  width: 80px;
+  border-radius: 25px;
+  height: 50px;
+  background-color: #eeb29f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
 }
