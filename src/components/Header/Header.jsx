@@ -12,7 +12,7 @@ const Header = () => {
   const dispatch = useDispatch();
   const { isAuth } = useAuth();
 
-  const user = useSelector((state) => state.user);
+  const { login, role } = useSelector((state) => state.user);
 
   const [search, setSearch] = useState("");
   const [selectedSearch, setSelectedSearch] = useState("title");
@@ -61,9 +61,14 @@ const Header = () => {
           />
         </div>
         <div className={classes.auth}>
+          {role === "admin" && (
+            <Link to="/admin" className={classes.admin}>
+              <p>Админ Панель</p>
+            </Link>
+          )}
           {isAuth ? (
             <div className={classes.user}>
-              <div className={classes.userLogin}>{user.login}</div>
+              <div className={classes.userLogin}>{login}</div>
               <div className={classes.imgBlock} onClick={logout}>
                 <p>Выйти</p>
               </div>

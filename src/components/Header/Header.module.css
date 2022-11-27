@@ -105,6 +105,28 @@
   opacity: 0.7;
   transition: 0.2s;
 }
+.admin {
+  width: 150px;
+  height: 50px;
+  background-color: #04b4c2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  margin-right: 10px;
+  cursor: pointer;
+  text-decoration: none;
+}
+.admin p {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  transition: 0.2s;
+}
+.admin:hover {
+  opacity: 0.7;
+  transition: 0.2s;
+}
 .register p {
   text-decoration: none;
   color: white;

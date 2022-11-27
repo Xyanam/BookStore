@@ -6,6 +6,7 @@ import Home from "./pages/Home/Home";
 import Registration from "./pages/Registration/Registration";
 import { ToastContainer } from "react-toastify";
 import Login from "./pages/Login/Login";
+import Admin from "./pages/Admin/Admin";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/register" element={<Registration />} />
         <Route path="/login" element={<Login />} />
         <Route path="/:id" element={<AboutBook />} />
+        <Route path="/admin" element={<Admin />} />
       </Routes>
     </div>
   );

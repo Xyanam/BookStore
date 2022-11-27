@@ -14,7 +14,6 @@ const Registration = () => {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [image, setImage] = useState(null);
   const [role] = useState("user");
 
   const notify = (response) => {
@@ -31,7 +30,6 @@ const Registration = () => {
       let userData = {
         login,
         password,
-        image,
         role: "user",
       };
 
@@ -44,7 +42,6 @@ const Registration = () => {
               setUser({
                 login,
                 password,
-                image,
                 role,
               })
             );
