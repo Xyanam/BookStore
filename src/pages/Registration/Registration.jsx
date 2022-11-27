@@ -48,7 +48,7 @@ const Registration = () => {
                 role,
               })
             );
-            navigate("/");
+            navigate(-1, { replace: true });
           }
         });
     } else {

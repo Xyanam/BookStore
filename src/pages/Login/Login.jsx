@@ -35,7 +35,7 @@ const Login = () => {
         notify(response.data.status);
         if (response.data.status === 200) {
           dispatch(setUser(response.data));
-          navigate("/");
+          navigate(-1, { replace: true });
         }
       });
   };

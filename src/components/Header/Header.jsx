@@ -11,10 +11,10 @@ import { setBooks } from "../../redux/slices/booksSlice";
 const Header = () => {
   const dispatch = useDispatch();
   const { isAuth } = useAuth();
+
   const user = useSelector((state) => state.user);
 
   const [search, setSearch] = useState("");
-
   const [selectedSearch, setSelectedSearch] = useState("title");
 
   useEffect(() => {

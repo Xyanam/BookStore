@@ -18,6 +18,7 @@ const userSlice = createSlice({
       state.role = action.payload.role;
     },
     removeUser(state) {
+      state.id = null;
       state.login = null;
       state.image = null;
       state.role = null;

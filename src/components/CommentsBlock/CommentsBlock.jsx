@@ -75,7 +75,7 @@ const CommentsBlock = ({ book_id }) => {
           </p>
         ) : (
           book[1].map((comments) => (
-            <Comment key={comments.comment_id} comments={comments} />
+            <Comment key={comments.comment_id} comments={comments} book_id={book_id} />
           ))
         )}
       </div>
