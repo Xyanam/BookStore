@@ -32,7 +32,6 @@ const Registration = () => {
         password,
         role: "user",
       };
-
       axios
         .post("http://bookstore/bookstore.ru/register.php", JSON.stringify(userData))
         .then((resp) => {
@@ -40,8 +39,8 @@ const Registration = () => {
           if (resp.data.result === true) {
             dispatch(
               setUser({
+                user_id: resp.data.id,
                 login,
-                password,
                 role,
               })
             );

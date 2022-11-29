@@ -10,6 +10,8 @@ const AddBook = () => {
   const { role } = useSelector((state) => state.user);
   const navigate = useNavigate();
 
+  const [isVisibleAuthor, setIsVisibleAuthor] = useState(false);
+
   const [authors, setAuthors] = useState([]);
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");
@@ -17,6 +19,9 @@ const AddBook = () => {
   const [genre, setGenre] = useState();
   const [selectedAuthor, setSelectedAuthor] = useState(1);
   const [image, setImage] = useState();
+
+  const [authorName, setAuthorName] = useState("");
+  const [authorSurname, setAuthorSurname] = useState("");
 
   useEffect(() => {
     axios
@@ -56,6 +61,18 @@ const AddBook = () => {
       .catch((err) => toast.error(err));
   };
 
+  const addAuthor = (e) => {
+    e.preventDefault();
+    let authorData = {
+      name: authorName,
+      surname: authorSurname,
+    };
+    axios.post("http://bookstore/bookstore.ru/addAuthor", JSON.stringify(authorData));
+    axios
+      .get("http://bookstore/bookstore.ru/authors")
+      .then((resp) => setAuthors(resp.data));
+  };
+
   return (
     <div className={classes.container}>
       <form className={classes.form} encType="multipart/form-data">
@@ -91,7 +108,7 @@ const AddBook = () => {
           <p className={classes.label}>Жанр</p>
           <select className={classes.select} onChange={(e) => setGenre(e.target.value)}>
             {genres.map((genre, index) => (
-              <option className={classes.option} value={index}>
+              <option key={index} className={classes.option} value={index}>
                 {genre}
               </option>
             ))}
@@ -103,15 +120,41 @@ const AddBook = () => {
             className={classes.select}
             onChange={(e) => setSelectedAuthor(e.target.value)}>
             {authors.length
-              ? authors.map((author, index) => {
+              ? authors.map((author) => {
                   return (
-                    <option value={index + 1}>
+                    <option key={author.author_id} value={author.author_id}>
                       {author.name} {author.surname}
                     </option>
                   );
                 })
               : ""}
           </select>
+          <p
+            className={classes.addAuthorTitle}
+            onClick={() => setIsVisibleAuthor(!isVisibleAuthor)}>
+            Добавить автора +
+          </p>
+          {isVisibleAuthor && (
+            <div className={classes.addAuthorBlock}>
+              <input
+                type="text"
+                className={classes.input}
+                placeholder="Введите имя..."
+                value={authorName}
+                onChange={(e) => setAuthorName(e.target.value)}
+              />
+              <input
+                type="text"
+                className={classes.input}
+                placeholder="Введите фамилию..."
+                value={authorSurname}
+                onChange={(e) => setAuthorSurname(e.target.value)}
+              />
+              <button className={classes.buttonAddAuthor} onClick={addAuthor}>
+                Добавить автора
+              </button>
+            </div>
+          )}
         </div>
         <div className={classes.blockUpload}>
           <input type="file" accept="image/*" onChange={onFileChange} />

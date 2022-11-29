@@ -1,14 +1,17 @@
 import React, { useEffect } from "react";
 import classes from "./BookInfo.module.css";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import Loader from "../Loader/Loader";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchBook } from "../../redux/slices/booksSlice";
 import CommentsBlock from "../CommentsBlock/CommentsBlock";
+import Rating from "../Rating/Rating";
+import { useAuth } from "../../hooks/useAuth";
 
 const BookInfo = () => {
   const { id } = useParams();
   const { book, loading } = useSelector((state) => state.books);
+  const { isAuth } = useAuth();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -28,6 +31,20 @@ const BookInfo = () => {
           <div className={classes.block}>
             <div className={classes.blockImg}>
               <img src={book[0].image} className={classes.img} alt="" />
+              {isAuth ? (
+                <Rating />
+              ) : (
+                <p className={classes.textNonAuth}>
+                  Чтобы оценить книгу,{" "}
+                  <Link to="/login" className={classes.link}>
+                    авторизуйтесь
+                  </Link>{" "}
+                  или{" "}
+                  <Link to="/register" className={classes.link}>
+                    зарегистрируйтесь
+                  </Link>
+                </p>
+              )}
             </div>
             <div className={classes.infoBlock}>
               <div className={classes.info}>
