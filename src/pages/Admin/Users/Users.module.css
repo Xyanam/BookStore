@@ -1,0 +1,49 @@
+.container {
+  max-width: 1700px;
+  width: 100%;
+  margin: 0 auto;
+}
+.blockWrapper {
+  max-width: 1700px;
+  width: 100%;
+  margin: 0 auto;
+}
+.tableTitle {
+  max-width: 1700px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+}
+.tableTitle p {
+  font-size: 20px;
+  font-weight: bold;
+}
+.tableBlocks {
+  max-width: 1700px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.block {
+  display: flex;
+  margin-bottom: 20px;
+  justify-content: space-around;
+  align-items: center;
+  border: 2px solid #eeb29f;
+  border-radius: 20px;
+  position: relative;
+}
+.block p {
+  font-size: 20px;
+  font-weight: bold;
+}
+.icon {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  left: 95%;
+  cursor: pointer;
+}

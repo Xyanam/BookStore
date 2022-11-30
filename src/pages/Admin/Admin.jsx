@@ -1,20 +1,23 @@
 import React, { useEffect } from "react";
 import classes from "./Admin.module.css";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import book from "../../assets/book.png";
-import users from "../../assets/users.png";
+import usersImg from "../../assets/users.png";
 import programmer from "../../assets/programmer.png";
+import { fetchUsers } from "../../redux/slices/userSlice";
 
 const Admin = () => {
   const navigate = useNavigate();
-  const { role } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+  const { role, users, loading } = useSelector((state) => state.user);
   const { books } = useSelector((state) => state.books);
 
   useEffect(() => {
     if (role !== "admin") {
       navigate("/");
     }
+    dispatch(fetchUsers());
   }, [role]);
 
   return (
@@ -34,11 +37,11 @@ const Admin = () => {
         <div className={classes.block}>
           <div className={classes.info}>
             <div className={classes.imgBlock}>
-              <img src={users} alt="" />
+              <img src={usersImg} alt="" />
             </div>
             <div className={classes.count}>
               <span>Пользователей:</span>
-              <p>21</p>
+              <p>{loading ? "Загрузка.." : users.length}</p>
             </div>
           </div>
         </div>

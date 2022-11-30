@@ -10,6 +10,7 @@ import Login from "./pages/Login/Login";
 import Admin from "./pages/Admin/Admin";
 import Sidebar from "./components/Sidebar/Sidebar";
 import AddBook from "./pages/Admin/AddBook/AddBook";
+import Users from "./pages/Admin/Users/Users";
 
 function App() {
   const location = useLocation();
@@ -25,6 +26,7 @@ function App() {
         <Route path="/:id" element={<AboutBook />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/admin/addBook" element={<AddBook />} />
+        <Route path="/admin/users" element={<Users />} />
       </Routes>
     </div>
   );

@@ -82,17 +82,6 @@ const Rating = () => {
             <p>{currentValue}</p>
           </div>
         </div>
-        <div className={classes.rating}>
-          <p>Средняя оценка:</p>
-          <div
-            className={classes.rate}
-            style={{
-              backgroundColor:
-                book[0].rating == 3 ? "orange" : book[0].rating > 3 ? "green" : "red",
-            }}>
-            <p>{book[0].rating}</p>
-          </div>
-        </div>
       </div>
     </div>
   );

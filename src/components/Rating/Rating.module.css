@@ -8,10 +8,11 @@
 .stars {
   display: flex;
   flex-direction: row;
-  height: 40px;
+  height: 25px;
 }
 .star {
-  width: 50px;
+  width: 40px;
+  cursor: pointer;
 }
 .rating {
   display: flex;

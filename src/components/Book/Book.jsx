@@ -21,6 +21,7 @@ const Book = ({ book }) => {
             {stars.map((_, index) => {
               return (
                 <svg
+                  key={index}
                   fill={activeStar > index ? "#ED8A19" : "gray"}
                   className={classes.star}
                   version="1.1"
