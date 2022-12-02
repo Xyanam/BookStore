@@ -43,7 +43,7 @@ const CommentsBlock = ({ book_id }) => {
           <div className={classes.blockInput}>
             <textarea
               className={classes.commentInput}
-              placeholder="Напишите что вы думаете о книге..."
+              placeholder="Напишите, что вы думаете о книге..."
               value={commentText}
               onChange={(e) => setCommentText(e.target.value)}
             />

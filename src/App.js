@@ -11,6 +11,7 @@ import Admin from "./pages/Admin/Admin";
 import Sidebar from "./components/Sidebar/Sidebar";
 import AddBook from "./pages/Admin/AddBook/AddBook";
 import Users from "./pages/Admin/Users/Users";
+import Comments from "./pages/Admin/Comments/Comments";
 
 function App() {
   const location = useLocation();
@@ -27,6 +28,7 @@ function App() {
         <Route path="/admin" element={<Admin />} />
         <Route path="/admin/addBook" element={<AddBook />} />
         <Route path="/admin/users" element={<Users />} />
+        <Route path="/admin/comments" element={<Comments />} />
       </Routes>
     </div>
   );

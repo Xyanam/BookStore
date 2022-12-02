@@ -41,6 +41,12 @@
   color: #2e1fd7;
   margin: 10px 0;
 }
+.authors {
+  display: flex;
+  justify-content: space-between;
+  max-width: 260px;
+  width: 100%;
+}
 .author {
   color: #736565;
   margin: 10px 0;

@@ -5,11 +5,15 @@ import { useNavigate } from "react-router-dom";
 import book from "../../assets/book.png";
 import usersImg from "../../assets/users.png";
 import programmer from "../../assets/programmer.png";
+import comment from "../../assets/comment.svg";
 import { fetchUsers } from "../../redux/slices/userSlice";
+import { fetchComments } from "../../redux/slices/commentsSlice";
+import { fetchBooks } from "../../redux/slices/booksSlice";
 
 const Admin = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const { comments } = useSelector((state) => state.comments);
   const { role, users, loading } = useSelector((state) => state.user);
   const { books } = useSelector((state) => state.books);
 
@@ -18,6 +22,8 @@ const Admin = () => {
       navigate("/");
     }
     dispatch(fetchUsers());
+    dispatch(fetchComments());
+    dispatch(fetchBooks());
   }, [role]);
 
   return (
@@ -42,6 +48,17 @@ const Admin = () => {
             <div className={classes.count}>
               <span>Пользователей:</span>
               <p>{loading ? "Загрузка.." : users.length}</p>
+            </div>
+          </div>
+        </div>
+        <div className={classes.block}>
+          <div className={classes.info}>
+            <div className={classes.imgBlock}>
+              <img src={comment} alt="" />
+            </div>
+            <div className={classes.count}>
+              <span>Комментариев:</span>
+              <p>{loading ? "Загрузка.." : comments.length}</p>
             </div>
           </div>
         </div>

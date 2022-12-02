@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { useParams, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchBook } from "../../redux/slices/booksSlice";
@@ -13,7 +12,7 @@ import EditBook from "../EditBook/EditBook";
 
 const BookInfo = () => {
   const { id } = useParams();
-  const { book, loading, genres } = useSelector((state) => state.books);
+  const { book, loading } = useSelector((state) => state.books);
   const { role } = useSelector((state) => state.user);
   const { isAuth } = useAuth();
   const dispatch = useDispatch();
@@ -62,9 +61,16 @@ const BookInfo = () => {
                 <>
                   <div className={classes.info}>
                     <h2 className={classes.title}>{book[0].title}</h2>
-                    <p className={classes.infoItems}>
-                      Автор: {book[0].name} {book[0].surname}
-                    </p>
+                    <div className={classes.blockAuthors}>
+                      <p className={classes.infoItems}>Авторы:</p>
+                      {book[0].authors.map((author) => {
+                        return (
+                          <p className={classes.infoItems}>
+                            {author.name} {author.surname}
+                          </p>
+                        );
+                      })}
+                    </div>
                     <p className={classes.infoItems}>Жанр: {book[0].genre}</p>
                     <p className={classes.infoItems}>
                       Год выпуска: {book[0].release_year}

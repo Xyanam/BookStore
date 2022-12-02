@@ -14,9 +14,16 @@ const Book = ({ book }) => {
         </div>
         <div className={classes.info}>
           <h2 className={classes.title}>{book.title}</h2>
-          <p className={classes.author}>
-            {book.name} {book.surname}
-          </p>
+          <div className={classes.authors}>
+            {book.authors?.length > 0
+              ? book.authors.map((author, index) => (
+                  <p key={index} className={classes.author}>
+                    {author.name} {author.surname}
+                  </p>
+                ))
+              : ""}
+          </div>
+
           <div className={classes.stars}>
             {stars.map((_, index) => {
               return (

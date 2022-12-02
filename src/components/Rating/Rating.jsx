@@ -47,6 +47,7 @@ const Rating = () => {
         {stars.map((_, index) => {
           return (
             <svg
+              key={index}
               className={classes.star}
               version="1.1"
               id="Capa_1"
