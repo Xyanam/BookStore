@@ -6,3 +6,10 @@
   background-color: #f4efef;
   font-family: "Open Sans";
 }
+.banned {
+  max-width: 1700px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

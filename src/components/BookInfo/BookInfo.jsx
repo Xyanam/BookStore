@@ -71,7 +71,16 @@ const BookInfo = () => {
                         );
                       })}
                     </div>
-                    <p className={classes.infoItems}>Жанр: {book[0].genre}</p>
+                    <div className={classes.blockAuthors}>
+                      <p className={classes.infoItems}>Жанры:</p>
+                      {book[0].genres.map((genre) => {
+                        return (
+                          <p key={genre.id} className={classes.infoItems}>
+                            {genre.genre}
+                          </p>
+                        );
+                      })}
+                    </div>
                     <p className={classes.infoItems}>
                       Год выпуска: {book[0].release_year}
                     </p>

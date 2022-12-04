@@ -19,6 +19,8 @@ const AddBook = () => {
   const [genre, setGenre] = useState();
   const [selectedAuthor, setSelectedAuthor] = useState(1);
   const [image, setImage] = useState();
+  const [secondAuthor, setSecondAuthor] = useState(null);
+  const [secondGenre, setSecondGenre] = useState(null);
 
   const [authorName, setAuthorName] = useState("");
   const [authorSurname, setAuthorSurname] = useState("");
@@ -54,6 +56,8 @@ const AddBook = () => {
       image,
       genre_id: genre,
       author_id: selectedAuthor,
+      secondAuthorId: secondAuthor,
+      secondGenreId: secondGenre,
     };
     axios
       .post("http://bookstore/bookstore.ru/addBook", JSON.stringify(bookData))
@@ -155,6 +159,36 @@ const AddBook = () => {
               </button>
             </div>
           )}
+        </div>
+        <div className={classes.blockAuthor}>
+          <p className={classes.label}>Второй автор</p>
+          <select
+            className={classes.select}
+            onChange={(e) => setSecondAuthor(e.target.value)}>
+            <option value={null}>Нет</option>
+            {authors.length
+              ? authors.map((author) => {
+                  return (
+                    <option key={author.author_id} value={author.author_id}>
+                      {author.name} {author.surname}
+                    </option>
+                  );
+                })
+              : ""}
+          </select>
+        </div>
+        <div className={classes.block}>
+          <p className={classes.label}>Второй жанр</p>
+          <select
+            className={classes.select}
+            onChange={(e) => setSecondGenre(e.target.value)}>
+            <option value={null}>Нет</option>
+            {genres.map((genre, index) => (
+              <option key={index} className={classes.option} value={index}>
+                {genre}
+              </option>
+            ))}
+          </select>
         </div>
         <div className={classes.blockUpload}>
           <input type="file" accept="image/*" onChange={onFileChange} />

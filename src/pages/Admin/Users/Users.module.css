@@ -47,3 +47,19 @@
   left: 95%;
   cursor: pointer;
 }
+.btnBan {
+  width: 190px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #50c2cb;
+  border: none;
+  font-family: "Open Sans";
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -5,6 +5,7 @@ const initialState = {
   id: null,
   login: null,
   role: null,
+  banned: null,
   loading: false,
   error: null,
   users: [],
@@ -32,11 +33,13 @@ const userSlice = createSlice({
       state.id = action.payload.user_id;
       state.login = action.payload.login;
       state.role = action.payload.role;
+      state.banned = action.payload.banned;
     },
     removeUser(state) {
       state.id = null;
       state.login = null;
       state.role = null;
+      state.banned = null;
     },
   },
   extraReducers: (builder) => {
