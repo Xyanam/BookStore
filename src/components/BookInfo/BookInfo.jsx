@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchBook } from "../../redux/slices/booksSlice";
 import { useAuth } from "../../hooks/useAuth";
@@ -8,7 +8,9 @@ import Loader from "../Loader/Loader";
 import CommentsBlock from "../CommentsBlock/CommentsBlock";
 import Rating from "../Rating/Rating";
 import pencil from "../../assets/pencil.svg";
+import deleteIcon from "../../assets/delete.svg";
 import EditBook from "../EditBook/EditBook";
+import { toast } from "react-toastify";
 
 const BookInfo = () => {
   const { id } = useParams();
@@ -16,12 +18,25 @@ const BookInfo = () => {
   const { role } = useSelector((state) => state.user);
   const { isAuth } = useAuth();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [isVisibleEdit, setIsVisibleEdit] = useState(false);
 
   useEffect(() => {
     dispatch(fetchBook(id));
   }, [id, dispatch]);
+
+  const deleteBook = (book_id) => {
+    fetch("http://bookstore/bookstore.ru/deleteBook", {
+      method: "DELETE",
+      body: JSON.stringify({ book_id }),
+    })
+      .then(() => {
+        navigate("/");
+        toast.success("Книга удалена");
+      })
+      .catch((error) => toast.error(error));
+  };
 
   return (
     <>
@@ -65,7 +80,7 @@ const BookInfo = () => {
                       <p className={classes.infoItems}>Авторы:</p>
                       {book[0].authors.map((author) => {
                         return (
-                          <p className={classes.infoItems}>
+                          <p key={author.author_id} className={classes.infoItems}>
                             {author.name} {author.surname}
                           </p>
                         );
@@ -96,11 +111,19 @@ const BookInfo = () => {
               )}
 
               {role === "admin" && (
-                <div
-                  className={classes.editButtonBlock}
-                  onClick={() => setIsVisibleEdit(!isVisibleEdit)}>
-                  <img src={pencil} alt="edit" className={classes.pencil} />
-                  <span>{isVisibleEdit ? "Скрыть" : "Редактировать"}</span>
+                <div className={classes.adminActions}>
+                  <div
+                    className={classes.editButtonBlock}
+                    onClick={() => setIsVisibleEdit(!isVisibleEdit)}>
+                    <img src={pencil} alt="edit" className={classes.pencil} />
+                    <span>{isVisibleEdit ? "Скрыть" : "Редактировать"}</span>
+                  </div>
+                  <div
+                    className={classes.editButtonBlock}
+                    onClick={() => deleteBook(book[0].book_id)}>
+                    <img src={deleteIcon} alt="edit" className={classes.pencil} />
+                    <span>Удалить</span>
+                  </div>
                 </div>
               )}
             </div>

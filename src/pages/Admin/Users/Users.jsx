@@ -16,6 +16,8 @@ const Users = () => {
     fetch(`http://bookstore/bookstore.ru/users`, {
       method: "DELETE",
       body: JSON.stringify({ user_id: +user_id }),
+    }).then(() => {
+      dispatch(fetchUsers());
     });
   };
 
