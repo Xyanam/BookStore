@@ -26,3 +26,11 @@
   border-bottom: 8px solid #04b4c2;
   transition: 0.2s;
 }
+
+@media (max-width: 750px) {
+  .genresList {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}

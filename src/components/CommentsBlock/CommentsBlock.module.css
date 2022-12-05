@@ -63,3 +63,9 @@
   font-size: 30px;
   color: #736868;
 }
+
+@media (max-width: 500px) {
+  .commentInput {
+    max-width: 280px;
+  }
+}

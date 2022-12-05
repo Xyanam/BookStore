@@ -45,3 +45,23 @@
   height: 20px;
   cursor: pointer;
 }
+
+@media (max-width: 768px) {
+  .block {
+    max-width: 600px;
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 500px) {
+  .block {
+    max-width: 350px;
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 325px) {
+  .block {
+    max-width: 250px;
+  }
+}

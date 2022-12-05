@@ -82,9 +82,48 @@
   display: flex;
   flex-direction: row;
   height: 40px;
-  width: 250px;
 }
 .star {
   width: 30px;
   margin-right: 10px;
+}
+
+@media (max-width: 550px) {
+  .authors {
+    flex-direction: column;
+  }
+  .imgBlock {
+    width: 180px;
+    height: 280px;
+  }
+  .img {
+    width: 180px;
+    height: 280px;
+  }
+  .info {
+    max-width: 200px;
+    width: 100%;
+  }
+  .blockItems {
+    padding: 10px 5px;
+  }
+}
+
+@media (max-width: 425px) {
+  .imgBlock {
+    width: 220px;
+    height: 320px;
+  }
+  .img {
+    width: 220px;
+    height: 320px;
+  }
+  .blockItems {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .button {
+    margin-top: 20px;
+  }
 }

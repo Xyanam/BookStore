@@ -57,15 +57,17 @@ const Users = () => {
                     alt="delete"
                     onClick={() => deleteUser(user.user_id)}
                   />
-                  <button
-                    className={classes.btnBan}
-                    onClick={() =>
-                      user.banned === "1"
-                        ? banUser(user.user_id, 0)
-                        : banUser(user.user_id, 1)
-                    }>
-                    {user.banned === "1" ? "Разблокировать" : "Заблокировать"}
-                  </button>
+                  {user.role !== "admin" && (
+                    <button
+                      className={classes.btnBan}
+                      onClick={() =>
+                        user.banned === "1"
+                          ? banUser(user.user_id, 0)
+                          : banUser(user.user_id, 1)
+                      }>
+                      {user.banned === "1" ? "Разблокировать" : "Заблокировать"}
+                    </button>
+                  )}
                 </div>
               );
             })

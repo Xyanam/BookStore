@@ -74,7 +74,12 @@ const AddBook = () => {
     axios.post("http://bookstore/bookstore.ru/addAuthor", JSON.stringify(authorData));
     axios
       .get("http://bookstore/bookstore.ru/authors")
-      .then((resp) => setAuthors(resp.data));
+      .then((resp) => setAuthors(resp.data))
+      .then(() => {
+        toast.success("Автор добавлен");
+        setAuthorName("");
+        setAuthorSurname("");
+      });
   };
 
   return (

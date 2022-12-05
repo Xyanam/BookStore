@@ -117,3 +117,27 @@
   font-weight: bold;
   font-size: 22px;
 }
+
+@media (max-width: 760px) {
+  .block {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .infoBlock {
+    max-width: 600px;
+    margin-left: 5px;
+  }
+}
+
+@media (max-width: 500px) {
+  .infoBlock {
+    max-width: 350px;
+  }
+  .adminActions {
+    flex-direction: column;
+  }
+  .editButtonBlock {
+    margin-bottom: 15px;
+  }
+}
