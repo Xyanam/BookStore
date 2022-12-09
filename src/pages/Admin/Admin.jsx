@@ -64,7 +64,7 @@ const Admin = () => {
         </div>
       </div>
       <div className={classes.programmer}>
-        <img src={programmer} alt="" />
+        <img src={programmer} alt="programmer" />
       </div>
     </div>
   );

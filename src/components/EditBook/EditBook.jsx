@@ -35,7 +35,7 @@ const EditBook = ({ book, setIsVisibleEdit }) => {
         `http://bookstore/bookstore.ru/books/${book[0].book_id}`,
         JSON.stringify(bookData)
       )
-      .then((resp) => {
+      .then(() => {
         dispatch(fetchBook(book[0].book_id));
         setIsVisibleEdit(false);
       });

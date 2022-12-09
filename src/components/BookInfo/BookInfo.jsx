@@ -90,7 +90,7 @@ const BookInfo = () => {
                       <p className={classes.infoItems}>Жанры:</p>
                       {book[0].genres.map((genre) => {
                         return (
-                          <p key={genre.id} className={classes.infoItems}>
+                          <p key={genre.genre_id} className={classes.infoItems}>
                             {genre.genre}
                           </p>
                         );

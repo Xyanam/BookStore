@@ -32,7 +32,7 @@ const Comment = ({ comments, book_id }) => {
         <p className={classes.text}>{comments.text}</p>
       </div>
       <div className={classes.trashIconBlock}>
-        {comments.user_id === id || role === "admin" ? (
+        {comments.user_id == id || role === "admin" ? (
           <img
             src={trash}
             alt="delete"

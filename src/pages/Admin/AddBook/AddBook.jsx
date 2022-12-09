@@ -61,7 +61,13 @@ const AddBook = () => {
     };
     axios
       .post("http://bookstore/bookstore.ru/addBook", JSON.stringify(bookData))
-      .then(() => toast.success("Книга добавлена!"))
+      .then(() => {
+        toast.success("Книга добавлена!");
+        setTitle("");
+        setText("");
+        setReleaseYear("");
+        setImage("");
+      })
       .catch((err) => toast.error(err));
   };
 
