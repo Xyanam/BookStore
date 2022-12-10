@@ -6,6 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useDispatch } from "react-redux";
 import { setUser } from "../../redux/slices/userSlice";
 import { useNavigate } from "react-router-dom";
+import Input from "../../UI/Input/Input";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -45,10 +46,9 @@ const Login = () => {
         <h1 className={classes.title}>Авторизация</h1>
         <div className={classes.block}>
           <p className={classes.label}>Логин</p>
-          <input
+          <Input
             name="login"
             type="text"
-            className={classes.input}
             placeholder="Введите логин"
             value={login}
             onChange={(e) => setLogin(e.target.value)}
@@ -56,10 +56,9 @@ const Login = () => {
         </div>
         <div className={classes.block}>
           <p className={classes.label}>Пароль</p>
-          <input
+          <Input
             name="password"
             type="password"
-            className={classes.input}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Введите пароль"

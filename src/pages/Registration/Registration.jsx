@@ -6,6 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useDispatch } from "react-redux";
 import { setUser } from "../../redux/slices/userSlice";
 import { useNavigate } from "react-router-dom";
+import Input from "../../UI/Input/Input";
 
 const Registration = () => {
   const dispatch = useDispatch();
@@ -59,10 +60,9 @@ const Registration = () => {
         <h1 className={classes.title}>Регистрация</h1>
         <div className={classes.block}>
           <p className={classes.label}>Логин</p>
-          <input
+          <Input
             name="login"
             type="text"
-            className={classes.input}
             placeholder="Введите логин"
             value={login}
             onChange={(e) => setLogin(e.target.value)}
@@ -70,10 +70,9 @@ const Registration = () => {
         </div>
         <div className={classes.block}>
           <p className={classes.label}>Пароль</p>
-          <input
+          <Input
             name="password"
             type="password"
-            className={classes.input}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Введите пароль"
@@ -81,15 +80,13 @@ const Registration = () => {
         </div>
         <div className={classes.block}>
           <p className={classes.label}>Повторите пароль</p>
-          <input
+          <Input
             type="password"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
-            className={classes.input}
             placeholder="Повторите пароль"
           />
         </div>
-
         <button type="submit" className={classes.button} onClick={onClickRegister}>
           Зарегистрироваться
         </button>

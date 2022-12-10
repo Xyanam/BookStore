@@ -3,6 +3,7 @@ import classes from "./EditBook.module.css";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchBook } from "../../redux/slices/booksSlice";
+import Input from "../../UI/Input/Input";
 
 const EditBook = ({ book, setIsVisibleEdit }) => {
   const dispatch = useDispatch();
@@ -45,19 +46,12 @@ const EditBook = ({ book, setIsVisibleEdit }) => {
     <div>
       <div className={classes.blockInput}>
         <p className={classes.label}>Заголовок</p>
-        <input
-          type="text"
-          className={classes.input}
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
+        <Input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
       </div>
-
       <div className={classes.blockInput}>
         <p className={classes.label}>Год издания</p>
-        <input
+        <Input
           type="text"
-          className={classes.input}
           value={release_year}
           onChange={(e) => setReleaseYear(e.target.value)}
         />

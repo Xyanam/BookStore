@@ -4,6 +4,7 @@ import classes from "./AddBook.module.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
+import Input from "../../../UI/Input/Input";
 
 const AddBook = () => {
   const { genres } = useSelector((state) => state.books);
@@ -94,11 +95,11 @@ const AddBook = () => {
         <h1 className={classes.title}>Добавить книгу</h1>
         <div className={classes.block}>
           <p className={classes.label}>Заголовок</p>
-          <input
+          <Input
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            className={classes.input}
+            placeholder="Введите заголовок"
           />
         </div>
         <div className={classes.block}>
@@ -112,11 +113,11 @@ const AddBook = () => {
         </div>
         <div className={classes.block}>
           <p className={classes.label}>Год издания</p>
-          <input
+          <Input
             type="text"
             value={release_year}
             onChange={(e) => setReleaseYear(e.target.value)}
-            className={classes.input}
+            placeholder="Год издания"
           />
         </div>
         <div className={classes.block}>
