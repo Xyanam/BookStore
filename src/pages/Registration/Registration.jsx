@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import { setUser } from "../../redux/slices/userSlice";
 import { useNavigate } from "react-router-dom";
 import Input from "../../components/UI/Input/Input";
+import GreenButton from "../../components/UI/GreenButton/GreenButton";
 
 const Registration = () => {
   const dispatch = useDispatch();
@@ -27,7 +28,7 @@ const Registration = () => {
 
   const onClickRegister = (e) => {
     e.preventDefault();
-    if (password === confirmPassword) {
+    if (password === confirmPassword && login.length >= 3 && password.length >= 3) {
       let userData = {
         login,
         password,
@@ -87,9 +88,7 @@ const Registration = () => {
             placeholder="Повторите пароль"
           />
         </div>
-        <button type="submit" className={classes.button} onClick={onClickRegister}>
-          Зарегистрироваться
-        </button>
+        <GreenButton onClick={onClickRegister}>Зарегистрироваться</GreenButton>
       </form>
     </div>
   );

@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 import Input from "../../../components/UI/Input/Input";
+import GreenButton from "../../../components/UI/GreenButton/GreenButton";
 
 const AddBook = () => {
   const { genres } = useSelector((state) => state.books);
@@ -166,9 +167,7 @@ const AddBook = () => {
                 value={authorSurname}
                 onChange={(e) => setAuthorSurname(e.target.value)}
               />
-              <button className={classes.buttonAddAuthor} onClick={addAuthor}>
-                Добавить автора
-              </button>
+              <GreenButton onClick={addAuthor}>Добавить автора</GreenButton>
             </div>
           )}
         </div>
@@ -208,9 +207,7 @@ const AddBook = () => {
             <img src={image} />
           </div>
         </div>
-        <button type="submit" className={classes.button} onClick={addBook}>
-          Добавить
-        </button>
+        <GreenButton onClick={addBook}>Добавить</GreenButton>
       </form>
     </div>
   );

@@ -6,6 +6,7 @@ import trash from "../../../assets/trash.png";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { fetchUsers } from "../../../redux/slices/userSlice";
+import GreenButton from "../../../components/UI/GreenButton/GreenButton";
 const Users = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -58,15 +59,14 @@ const Users = () => {
                     onClick={() => deleteUser(user.user_id)}
                   />
                   {user.role !== "admin" && (
-                    <button
-                      className={classes.btnBan}
+                    <GreenButton
                       onClick={() =>
                         user.banned === "1"
                           ? banUser(user.user_id, 0)
                           : banUser(user.user_id, 1)
                       }>
                       {user.banned === "1" ? "Разблокировать" : "Заблокировать"}
-                    </button>
+                    </GreenButton>
                   )}
                 </div>
               );

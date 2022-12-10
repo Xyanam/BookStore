@@ -8,6 +8,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import { fetchBook } from "../../redux/slices/booksSlice";
+import GreenButton from "../UI/GreenButton/GreenButton";
 const CommentsBlock = ({ book_id }) => {
   const dispatch = useDispatch();
   const { isAuth } = useAuth();
@@ -47,9 +48,7 @@ const CommentsBlock = ({ book_id }) => {
               value={commentText}
               onChange={(e) => setCommentText(e.target.value)}
             />
-            <button className={classes.button} onClick={sendComment}>
-              Отправить
-            </button>
+            <GreenButton onClick={sendComment}>Отправить</GreenButton>
           </div>
         </>
       ) : (

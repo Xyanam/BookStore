@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import { setUser } from "../../redux/slices/userSlice";
 import { useNavigate } from "react-router-dom";
 import Input from "../../components/UI/Input/Input";
+import GreenButton from "../../components/UI/GreenButton/GreenButton";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -64,10 +65,7 @@ const Login = () => {
             placeholder="Введите пароль"
           />
         </div>
-
-        <button type="submit" className={classes.button} onClick={onClickRegister}>
-          Авторизоваться
-        </button>
+        <GreenButton onClick={onClickRegister}>Авторизоваться</GreenButton>
       </form>
     </div>
   );
