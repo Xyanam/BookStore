@@ -6,7 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useDispatch } from "react-redux";
 import { setUser } from "../../redux/slices/userSlice";
 import { useNavigate } from "react-router-dom";
-import Input from "../../UI/Input/Input";
+import Input from "../../components/UI/Input/Input";
 
 const Login = () => {
   const dispatch = useDispatch();

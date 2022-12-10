@@ -3,7 +3,7 @@ import classes from "./EditBook.module.css";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchBook } from "../../redux/slices/booksSlice";
-import Input from "../../UI/Input/Input";
+import Input from "../UI/Input/Input";
 
 const EditBook = ({ book, setIsVisibleEdit }) => {
   const dispatch = useDispatch();

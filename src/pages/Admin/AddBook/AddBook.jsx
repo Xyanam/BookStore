@@ -4,7 +4,7 @@ import classes from "./AddBook.module.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
-import Input from "../../../UI/Input/Input";
+import Input from "../../../components/UI/Input/Input";
 
 const AddBook = () => {
   const { genres } = useSelector((state) => state.books);
